@@ -91,8 +91,8 @@
 		var index=0;
 		var length=3;
 		$("#prev").click(function(){
-			$("#banner_ul").animate({right:874*index});
 			index--;
+			$("#banner_ul").animate({right:874*index});
 			if(index<0)
 			{
 				index=length-1;
@@ -101,9 +101,8 @@
 		});
 		
 		$("#next").click(function(){
-        
-			$("#banner_ul").animate({right:874*index});
 			index++;
+			$("#banner_ul").animate({right:874*index});
 			if(index==length)
 			{
 				index=0
