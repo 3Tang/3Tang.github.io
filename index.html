@@ -33,7 +33,7 @@
 			.banner .b_left{width:300px;height:400px;float: left;margin-right: 20px;}
 			.banner .b_right{width:874px;height:367px;float: left;overflow:hidden}
 			.banner .b_right ul {width:1000%;height: 367px;position:relative;}
-			.banner .b_right ul li{width:874px;height: 367px;float: left;}
+			.banner .b_right ul li{width:874px;height: 367px;font-size: 64px;background: blue;float:left}
 		</style>
 	</head>
 	<body>
@@ -72,10 +72,16 @@
 		<div class="banner">
 			<div class="b_left"></div>
 			<div class="b_right">
-				<ul id="banner_ul">
+				<ul id="banner_ul" style="left:-874px">
+	<li><img src="http://static.tanzhouedu.com//group1/M00/00/06/CqpsflWt-eqAcPrBAAMBeTT9mBA649.png"></li>
+
+
 					<li><img src="http://static.tanzhouedu.com//group1/M00/00/02/CqpsflWmGBCAXj9UAAN_D1XMcxU455.png"></li>
 					<li><img src="http://static.tanzhouedu.com//group1/M00/00/02/CqpsflWmGIKAcX-iAAJ0qz_N5Y4790.png"></li>
 					<li><img src="http://static.tanzhouedu.com//group1/M00/00/06/CqpsflWt-eqAcPrBAAMBeTT9mBA649.png"></li>
+
+					<li><img src="http://static.tanzhouedu.com//group1/M00/00/02/CqpsflWmGBCAXj9UAAN_D1XMcxU455.png"></li>
+		
 				</ul>
 			</div>
 		</div>
@@ -89,25 +95,33 @@
 		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 		<script type="text/javascript">
 		var index=0;
-		var length=3;
+		var length=5;
+		var w=874;
 		$("#prev").click(function(){
 			index--;
-			$("#banner_ul").animate({right:874*index});
-			if(index<0)
+			if(index==0||index==-1)
 			{
-				index=length-1;
+				index=length-2;
+				$("#banner_ul").animate({"left":0},function(){
+						//显示最后一个张图片
+						$(this).css("left",-1 * w * index);
+					});
+			}else{
+				$("#banner_ul").animate({"left":-1*w*index});
 			}
+			
 			$("#console").html(index);
 		});
 		
 		$("#next").click(function(){
 			index++;
-			$("#banner_ul").animate({right:874*index});
-			if(index==length)
+			if(index==length-1)
 			{
-				index=0
+				
+				$("#banner_ul").css({"left":0});
+				index=1;
 			}
-			
+			$("#banner_ul").animate({"left":-w*index});
 			$("#console").html(index);
 		});
 	
